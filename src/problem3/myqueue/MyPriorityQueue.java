@@ -42,5 +42,32 @@ public class MyPriorityQueue<G> implements QueueAdt<G> {
         size++;
     }
 
-   
+    @Override
+    public void add(G data) {
+        if ((size == 0)) {
+            Node<G> node = new Node<G>(data, null);
+            front = node;
+            rear = node;
+            size++;
+        } else {
+            sortedAdd(data);
+        }
+
+    }
+
+    @Override
+    public G remove() {
+        G data = front.getData();
+        front = front.getNext();
+        size--;
+        return data;
+    }
+
+    @Override
+    public G peek() {
+        G data = front.getData();
+        return data;
+    }
+
+
 }
