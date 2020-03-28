@@ -69,5 +69,18 @@ public class MyPriorityQueue<G> implements QueueAdt<G> {
         return data;
     }
 
+    public String toString() {
+        final StringBuilder stringBuilder = new StringBuilder("[");
+        Node<G> temp = front;
+        for (int i = 0; i < size && temp != null; i++) {
+            G data = temp.getData();
+            stringBuilder.append(data);
+            stringBuilder.append((i < size - 1) ? "," : "");
+            temp = temp.getNext();
+        }
+        stringBuilder.append("]");
+        return stringBuilder.toString();
+    }
+
 
 }
