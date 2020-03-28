@@ -39,7 +39,7 @@ public class MyCircularQueue {
             setRear(getRear().getNext());
         }
     }
-    
+
 
     public void traverseQueue() {
         Node temp = getFront();
@@ -50,5 +50,21 @@ public class MyCircularQueue {
             if (temp == getFront())
                 break;
         }
+    }
+
+    public Node deQueue() {
+        Node temp;
+        if (getFront() == null) {
+            return null;
+        } else if (getFront() == getRear()) {
+            temp = getFront();
+            setRear(null);
+            setFront(null);
+        } else {
+            temp = getFront();
+            setFront(getFront().getNext());
+            getRear().setNext(getFront());
+        }
+        return temp;
     }
 }
