@@ -6,5 +6,13 @@
  */
 package problem3.myqueue;
 
-public class MyPriorityQueue {
+import problem3.ADT.QueueAdt;
+import problem3.node.Node;
+
+public class MyPriorityQueue<G> implements QueueAdt<G> {
+    private int size = 0;
+    private Node<G> front;
+    private Node<G> rear;
+
+
 }
