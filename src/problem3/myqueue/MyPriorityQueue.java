@@ -27,5 +27,20 @@ public class MyPriorityQueue<G> implements QueueAdt<G> {
         return response;
     }
 
+    private void sortedAdd(G data) {
+        Node<G> node = new Node<>(data);
+        for (int i = 0; i < size; i++) {
+            Node<G> node1 = getNode(size - i);
+            if (node.getData().equals(node1.getData())) {
+                node.setNext(node1.getNext());
+                node1.setNext(node);
+            } else
+                continue;
+        }
+        rear = getNode(size);
+        front = getNode(1);
+        size++;
+    }
 
+   
 }
